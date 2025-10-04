@@ -103,6 +103,13 @@ public class BankApp {
 
             int choice = scanner.nextInt();
 
+            if (choice >= 2 && choice <= 6) {
+                if (account == null) {
+                    System.out.println("Сначала откройте счёт!");
+                    continue;
+                }
+            }
+
             switch (choice) {
                 case 1:
                     account = new BankAccount();
@@ -110,10 +117,6 @@ public class BankApp {
                     break;
 
                 case 2:
-                    if (account == null) {
-                        System.out.println("Сначала откройте счёт!");
-                        break;
-                    }
                     System.out.print("Введите сумму для пополнения: ");
                     double depositAmount = scanner.nextDouble();
                     account.deposit(depositAmount);
@@ -121,10 +124,6 @@ public class BankApp {
                     break;
 
                 case 3:
-                    if (account == null) {
-                        System.out.println("Сначала откройте счёт!");
-                        break;
-                    }
                     System.out.print("Введите сумму для снятия: ");
                     double withdrawAmount = scanner.nextDouble();
                     account.withdraw(withdrawAmount);
@@ -132,26 +131,14 @@ public class BankApp {
                     break;
 
                 case 4:
-                    if (account == null) {
-                        System.out.println("Сначала откройте счёт!");
-                        break;
-                    }
                     System.out.println("Текущий баланс: " + account.getBalance());
                     break;
 
                 case 5:
-                    if (account == null) {
-                        System.out.println("Сначала откройте счёт!");
-                        break;
-                    }
                     account.printTransactions();
                     break;
 
                 case 6:
-                    if (account == null) {
-                        System.out.println("Сначала откройте счёт!");
-                        break;
-                    }
                     System.out.print("Введите сумму для поиска: ");
                     double searchAmount = scanner.nextDouble();
                     account.searchTransactions(searchAmount);
